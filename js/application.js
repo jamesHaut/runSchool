@@ -21,18 +21,6 @@
             "\t\t                <span class=\"am-navbar-label\" >首页</span>\n" +
             "\t\t            </a>\n" +
             "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"run_pool.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav1.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">跑腿池</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"we.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav2.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">咨询</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
             "\t\t          <li >\n" +
             "\t\t            <a href=\"member.html\" class=\"\">\n" +
             "\t\t                <span class=\"\"><img src=\"images/nav3.png\"/></span>\n" +
@@ -46,18 +34,6 @@
             "\t\t            <a href=\"index.html\" class=\"\">\n" +
             "\t\t                <span class=\"\"><img src=\"images/nav.png\"/></span>\n" +
             "\t\t                <span class=\"am-navbar-label\">首页</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"run_pool.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav1s.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">跑腿池</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"we.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav2.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">咨询</span>\n" +
             "\t\t            </a>\n" +
             "\t\t          </li>\n" +
             "\t\t          <li >\n" +
@@ -75,18 +51,6 @@
             "\t\t                <span class=\"am-navbar-label\">首页</span>\n" +
             "\t\t            </a>\n" +
             "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"run_pool.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav1.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">跑腿池</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"we.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav2s.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">咨询</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
             "\t\t          <li >\n" +
             "\t\t            <a href=\"member.html\" class=\"\">\n" +
             "\t\t                <span class=\"\"><img src=\"images/nav3.png\"/></span>\n" +
@@ -100,18 +64,6 @@
             "\t\t            <a href=\"index.html\" class=\"\">\n" +
             "\t\t                <span class=\"\"><img src=\"images/nav.png\"/></span>\n" +
             "\t\t                <span class=\"am-navbar-label\">首页</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"run_pool.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav1.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">跑腿池</span>\n" +
-            "\t\t            </a>\n" +
-            "\t\t          </li>\n" +
-            "\t\t          <li>\n" +
-            "\t\t            <a href=\"we.html\" class=\"\">\n" +
-            "\t\t                <span class=\"\"><img src=\"images/nav2.png\"/></span>\n" +
-            "\t\t                <span class=\"am-navbar-label\">咨询</span>\n" +
             "\t\t            </a>\n" +
             "\t\t          </li>\n" +
             "\t\t          <li >\n" +
