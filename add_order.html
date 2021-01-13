@@ -17,6 +17,7 @@
     <script type="text/javascript" src="js/timedropper.min.js"></script>
     <script type="text/javascript" src="js/datedropper.min.js"></script>
     <script type="text/javascript" src="js/TimeObjectUtil.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
 
 
 </head>
@@ -67,6 +68,18 @@
             }
             ;
         })
+        $(".addOrder").click(function () {
+        	var db = getCurrentDb(); //初始化数据库
+        	var name = '未登录';
+        	var job = $('#install_school').val();
+        	var num = $('#num').val();
+        	var content = $('#content').val();
+        	var money = $('#text_box').val();
+        	db.transaction(function(trans) { //启动一个事务，并设置回调函数
+        		trans.executeSql("INSERT INTO my_order VALUES(?,?,?,?,?,?,?)", [name, job, num, content, money, 0, dateFormat(new Date())]);
+        		location.href = 'index.html';
+        	});
+        })
     });
 </script>
 <body>
@@ -83,27 +96,24 @@
 </header>
 <div class="demo" style="background: white;margin-top: 2px">
     <span class="add_input1" style="color: gray">找人干什么： </span>
-    <select name="colId" id="install_school" class="select" style="background: white">
-
-    </select>
+    <select name="job" id="install_school" class="select" style="background: white"></select>
 </div>
-<textarea id="content" class="add_input" type="text" style="padding-left: 8px" placeholder="请描述一下您这次的目的..." cols="10"
+<div class="demo" style="background: white;margin-top: 2px">
+    <span class="add_input1" style="color: gray">需 求 数 量 ： </span>
+    <input type="text" name="num" id="num" placeholder="需要画的图纸数量"/>
+</div>
+<textarea id="content" class="add_input" style="padding-left: 8px" placeholder="请描述一下您的需求..." cols="10"
           rows="5"></textarea>
 
-<a href="address.html"><input class="add_input" id="address" type="text" style="height: 6%;padding-left: 8px"
-                              placeholder="请选择您要送达的地址" readonly="readonly"/></a>
+<input class="add_input" id="address" type="file" multiple="multiple" style="height: 6%;padding-left: 8px"
+                              placeholder="上传补充资料" readonly="readonly"/>
 
-<div style="margin-left: 4px" class="radio"><span class="yuan rdactive"><span></span></span><span style="color: black;">不限</span>
-</div>
-<div class="radio"><span class="yuan"><span></span></span><span class="girl">限美女</span></div>
-<div class="radio"><span class="yuan"><span></span></span><span class="boy">限帅哥</span></div>
-
-<div style="background: white;margin-top: 33px;padding-bottom: 4px">
-    <span class="add_input1" style="color: gray">感谢回馈： </span>￥
+<div style="background: white;margin-top: 2px;padding-bottom: 4px">
+    <span class="add_input1" style="color: gray">报酬金额： </span>￥
     <!--<input class="add_input1" type="number" style="padding-left: 8px;margin-left: 8px" placeholder="最低2元" value="2.0"/>-->
 
     <input id="min" name="" type="button" value="-"/>
-    <input id="text_box" name="" type="number" value="2" style="width:30px;text-align: center" />
+    <input id="text_box" name="money" type="number" value="1000" style="width:60px;text-align: center" />
     <input id="add" name="" type="button" value="+"/>
 </div>
 
@@ -117,7 +127,7 @@
                                                                                                         readonly="readonly"/>
 </div>
 <div style="width: 100%;text-align: center;margin-top: 50px">
-    <button class=" className">
+    <button class="addOrder">
         立即发布
     </button>
 </div>

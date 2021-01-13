@@ -7,12 +7,12 @@
 
 
     $(function () {
-        $("#install_school").append("  <option disabled selected value=\"-1\">请选择你要找人干什么</option>\n" +
+        $("#install_school").append("  <option disabled selected value=\"-1\">请选择</option>\n" +
 
-            "                                    <option value=\"10704\">求帮忙</option>\n" +
-            "                                    <option value=\"11664\">取快递</option>\n" +
-            "                                    <option value=\"11664\">求陪跑</option>\n" +
-            "                                    <option value=\"13123\">求带饭</option>\n");
+            "                                    <option value=\"代画平面图\">代画平面图</option>\n" +
+            "                                    <option value=\"代画施工图\">代画施工图</option>\n" +
+            "                                    <option value=\"代画效果图\">代画效果图</option>\n" +
+            "                                    <option value=\"代画其他CAD图\">代画其他CAD图</option>\n");
 
         $("#tab").append(" <ul class=\"am-navbar-nav am-cf am-avg-sm-4\">\n" +
             "\t\t          <li >\n" +

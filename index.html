@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/style.css"/>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/amazeui.min.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/template-web.js"></script>
     <script type="text/javascript" src="js/application.js"></script>
 
 </head>
@@ -28,72 +30,6 @@
 
 
 <div data-am-widget="intro" class="am-intro am-cf am-intro-default" id="normal">
-    <div class="am-g am-intro-bd">
-        <a href="content.html">
-            <div class="am-intro-left am-u-sm-3"><img src="images/boy.png"/></div>
-            <div class="am-intro-right am-u-sm-9">
-                <div class="text">
-                    <span style="float: left;color: black;font-size: 16px"><i>王同学</i></span>
-                    <span class="fr black" style="margin-right: 2%"><i>待接单</i></span>
-                </div>
-                <p>天花平面图1张</p>
-                <div class="text">
-                    <span class="fl">5分钟前</span>
-                    <span class="fr"><i>赚</i><i class="price">500.00</i><i>元</i></span>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="am-g am-intro-bd">
-        <a href="content.html">
-            <div class="am-intro-left am-u-sm-3"><img src="images/p.png"/></div>
-            <div class="am-intro-right am-u-sm-9">
-                <div class="text">
-                    <span style="float: left;color: black;font-size: 16px"><i>王同学</i></span>
-                    <span class="fr black" style="margin-right: 2%"><i>进行中</i></span>
-                </div>
-                <p>卧室效果图1张</p>
-                <div class="text">
-                    <span class="fl">5分钟前</span>
-                    <span class="fr"><i>赚</i><i class="price">2000.00</i><i>元</i></span>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="am-g am-intro-bd">
-        <a href="content.html">
-            <div class="am-intro-left am-u-sm-3"><img src="images/p.png"/></div>
-            <div class="am-intro-right am-u-sm-9">
-                <div class="text">
-                    <span style="float: left;color: black;font-size: 16px"><i>王同学</i></span>
-                    <span class="fr black" style="margin-right: 2%"><i>进行中</i></span>
-                </div>
-                <p>效果图5张</p>
-                <p class="gray">5个房间各1张</p>
-                <div class="text">
-                    <span class="fl">5分钟前</span>
-                    <span class="fr"><i>赚</i><i class="price">5000.00</i><i>元</i></span>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="am-g am-intro-bd">
-        <a href="content.html">
-            <div class="am-intro-left am-u-sm-3"><img src="images/p.png"/></div>
-            <div class="am-intro-right am-u-sm-9">
-                <div class="text">
-                    <span style="float: left;color: black;font-size: 16px"><i>王同学</i></span>
-                    <span class="fr gray" style="margin-right: 2%"><i>已完成</i></span>
-                </div>
-                <p>水电立面图1张</p>
-                <div class="text">
-                    <span class="fl">5分钟前</span>
-                    <span class="fr"><i>赚</i><i class="price">200.00</i><i>元</i></span>
-                </div>
-            </div>
-        </a>
-    </div>
 </div>
 
 <div class="communityPage-publish-btn cmn-theme-bgcolor" id="communityPage-publish-btn"><a id="down_order"
@@ -108,4 +44,40 @@
 
 
 </body>
+<script id="templateId" type="text/html">
+{{each list item}}
+{{if item.money > 0}}
+	<div class="am-g am-intro-bd">
+        <a href="content.html?id=">
+            <div class="am-intro-left am-u-sm-3"><img src="images/boy.png"/></div>
+            <div class="am-intro-right am-u-sm-9">
+                <div class="text">
+                    <span style="float: left;color: black;font-size: 16px"><i>{{item.name}}</i></span>
+                    <span class="fr black" style="margin-right: 2%"><i>{{if item.status_ == 0}}待接单{{else if item.status_ == 1}}进行中{{else if item.status_ == 2}}已完成{{/if}}</i></span>
+                </div>
+                <p>{{item.job}}{{item.num}}张</p>
+                <div class="text">
+                    <span class="fl">{{item.timestamp}}</span>
+                    <span class="fr"><i>赚</i><i class="price">{{item.money}}</i><i>元</i></span>
+                </div>
+            </div>
+        </a>
+    </div>
+{{/if}}
+{{/each}} 
+</script>
+<script type="text/javascript">
+
+var db = getCurrentDb(); //初始化数据库
+db.transaction(function(trans) { //启动一个事务，并设置回调函数
+    //执行创建表的Sql脚本
+    trans.executeSql("select * from my_order;", [], function(trans, result) {
+    	var list = {'list': result.rows};
+    	var html = template('templateId', list);
+    	document.getElementById('normal').innerHTML = html;
+    }, function(trans, message) {
+    });
+    
+});
+</script>
 </html>
